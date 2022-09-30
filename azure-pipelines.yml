@@ -13,7 +13,7 @@ steps:
 - task: AzureFileCopy@2
   inputs:
     SourcePath: 'index.html'
-    azureSubscription: 'MyARMConnection'
+    azureSubscription: 'Testing'
     Destination: 'AzureBlob'
     storage: 'test02345'
     ContainerName: '$web'
@@ -22,8 +22,9 @@ steps:
 - task: AzureFileCopy@2
   inputs:
     SourcePath: 'error.html'
-    azureSubscription: 'MyARMConnection'
+    azureSubscription: 'Testing'
     Destination: 'AzureBlob'
     storage: 'test02345'
     ContainerName: '$web'
     BlobPrefix: ''
+
