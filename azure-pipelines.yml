@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: AzureFileCopy@2
+  inputs:
+    SourcePath: 'index.html'
+    azureSubscription: 'MyARMConnection'
+    Destination: 'AzureBlob'
+    storage: 'test02345'
+    ContainerName: '$web'
+    BlobPrefix: ''
+ 
+- task: AzureFileCopy@2
+  inputs:
+    SourcePath: 'error.html'
+    azureSubscription: 'MyARMConnection'
+    Destination: 'AzureBlob'
+    storage: 'test02345'
+    ContainerName: '$web'
+    BlobPrefix: ''
